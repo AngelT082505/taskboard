@@ -52,7 +52,7 @@ public class AuthController {
                     .orElseGet(() -> userService.findByEmail(loginRequest.getUsernameOrEmail())
                             .orElseThrow(() -> new UsernameNotFoundException("User not found")));
 
-            String ipAddress = request.getRemoteAddr(); // obtiene IP cliente
+            String ipAddress = request.getRemoteAddr();
 
             Session session = sessionService.createSession(user, ipAddress);
 
